@@ -13,7 +13,7 @@
     <div class="container">
       <h1 class="mb-4">Store management</h1>
 
-      <form action="">
+      <div>
         <div class="w-100 mx-auto pt-5">
           <label for="siteName" class="text-capitalize py-1 fw-bold"
             >Site Name</label
@@ -35,15 +35,16 @@
           />
         </div>
 <div class="w-100 mx-auto text-center">
-        <button class="btn btn-danger mx-auto px-5 py-2">Submit</button>
+        <button class="btn btn-danger mx-auto px-5 py-2" onclick="addSite()">Submit</button>
         </div>
-      </form>
+      </div>
     </div>
 
 
 <div class="container my-5">
-  <table class="table text-center">
-<tr>
+  <table class="table text-center" >
+
+<thead>
   <th>
     Index
   </th>
@@ -54,17 +55,15 @@
     Visit
   </th>
   <th>
+    Edit
+  </th>
+  <th>
     Delete
   </th>
-</tr>
+</thead>
+<tbody id="table">
 
-<tr>
-  <td>1</td>
-  <td>The best book</td>
-  <td><button class="btn btn-info w-50">Visit</button></td>
-  <td><button class="btn btn-danger w-50">Delete</button></td>
-</tr>
-
+</tbody>
 </table>
 </div>
 
