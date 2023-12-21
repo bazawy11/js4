@@ -11,7 +11,7 @@
 
   <body>
     <div class="container">
-      <h1 class="mb-4">Store management</h1>
+      <h1 class="my-5 text-center">Store management</h1>
 
       <div>
         <div class="w-100 mx-auto pt-5">
@@ -34,41 +34,28 @@
             class="form-control fcc mb-3 p-2"
           />
         </div>
-<div class="w-100 mx-auto text-center">
-        <button class="btn btn-danger mx-auto px-5 py-2" onclick="addSite()">Submit</button>
+        <div class="w-100 mx-auto text-center">
+          <button class="btn btn-danger mx-auto px-5 py-2" onclick="addSite()">
+            Submit
+          </button>
         </div>
       </div>
     </div>
 
+    <div class="container my-5">
+      <table class="table text-center">
+        <thead>
+          <th>Index</th>
+          <th>Website Name</th>
+          <th>Visit</th>
 
-<div class="container my-5">
-  <table class="table text-center" >
+          <th>Delete</th>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
 
-<thead>
-  <th>
-    Index
-  </th>
-  <th>
-    Website Name	
-  </th>
-  <th>
-    Visit
-  </th>
-  <th>
-    Edit
-  </th>
-  <th>
-    Delete
-  </th>
-</thead>
-<tbody id="table">
-
-</tbody>
-</table>
-</div>
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>
