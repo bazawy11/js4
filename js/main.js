@@ -12,7 +12,7 @@ if (localStorage.getItem("storeManagement") != null) {
 }
 
 function setLocalStorage(sitesList) {
-  localStorage.setItem('storeManagement', JSON.stringify(sitesList));
+  localStorage.setItem("storeManagement", JSON.stringify(sitesList));
 }
 
 function addSite() {
@@ -20,33 +20,27 @@ function addSite() {
     name: siteName.value,
     link: siteLink.value,
   };
-if (checkName(site.name) && checkUrl(site.link)){
- 
-  Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "Your work has been saved",
-    showConfirmButton: false,
-    timer: 1500,
-  });
+  if (checkName(site.name) && checkUrl(site.link)) {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
 
-  sitesList.push(site);
-  console.log(site);
-  setLocalStorage(sitesList);
-  display(sitesList);
-  clear();
+    sitesList.push(site);
+    console.log(site);
+    setLocalStorage(sitesList);
+    display(sitesList);
+    clear();
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "you need to: \n # enter a valid email address \n # enter at least 3 characters in the site name",
+    });
   }
-  
-else {
-  
-Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "you need to: \n # enter a valid email address \n # enter at least 3 characters in the site name"
-
-});
-}
-
 }
 
 function display(list) {
@@ -143,7 +137,25 @@ function checkName(name) {
   }
 }
 
+function helpEntry(inputField, functionTrue) {
+  if (functionTrue == true) {
+    inputField.classList.add("border-success");
+    inputField.classList.add("border-5");
+    console.log("perfect!");
+  } else {
+    inputField.classList.remove("border-success");
+  }
 
+  if (inputField.value != "" && functionTrue == false) {
+    inputField.classList.add("border-danger");
+    inputField.classList.add("border-5");
 
+    console.log("not yet!");
+  } else {
+    inputField.classList.remove("border-danger");
+  }
 
-
+  if (inputField.value == "") {
+    inputField.classList.remove("border-5");
+  }
+}
