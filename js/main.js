@@ -118,7 +118,7 @@ function clear() {
 }
 
 function checkUrl(url) {
-  var urlValidator = /\w+[.]\w{2,}/;
+  var urlValidator = /\w+[.]\w{2,}\S/;
 
   if (urlValidator.test(url)) {
     return true;
