@@ -12,9 +12,20 @@
   <body>
 
 <div class="big vh-100 d-flex">
-<div class="element w-25 bg-info d-flex justify-content-center align-content-center m-auto">
+  <div class="container mt-5">
+<div class="element m-auto w-75 p-5 shadow-lg border-5 ">
+            <h1 class="text-center">Smart Login System</h1>
 
-</div>
+            <input id="signinEmail" class="form-control my-3" placeholder="Enter your email" type="text">
+            <input id="signinPassword" class="form-control my-3" placeholder="Enter your password" type="password">
+            <p id="incorrect"></p>
+
+            <button onclick="login()" class="btn btn-outline-info w-100 my-3">Login</button>
+            <p class="text-white text-center">Don’t have an account? <a class="text-white text-decoration-none" href="/signup">Sign Up</a></p>
+
+        </div>
+  </div>
+
 </div>
     
 

@@ -1,4 +1,34 @@
 .big
 {
-  
+  background-color: #24353F;
+}
+
+.container{
+      max-width: 960px;
+      box-sizing: border-box ;
+      
+
+}
+
+.element{
+    background-color: #24353F;
+    
+
+}
+
+.element h1{
+  color: #17A2B8;
+}
+
+.element input{
+background-color: transparent !important;
+    color: #fff !important;
+    border-color: gray;
+
+}
+
+.element ::placeholder{
+
+    color: #fff !important;
+
 }
