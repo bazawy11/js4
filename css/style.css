@@ -32,3 +32,12 @@ background-color: transparent !important;
     color: #fff !important;
 
 }
+
+a{
+text-decoration: none;
+}
+
+a:hover{
+text-decoration: underline;
+}
+
