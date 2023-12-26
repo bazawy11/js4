@@ -12,21 +12,35 @@ if (localStorage.getItem("users") != null) {
   users = getLocaleStorage();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  logInBtn.addEventListener("click", function (eventinfo) {
-    if (checkSignInFields()) {
-      logUser(logInEmail.value, logInPass.value);
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  signUpBtn.addEventListener("click", function (eventinfo) {
-    if (checkSignUpFields()) {
-      addUser(signUpName.value, signUpEmail.value, signUpPass.value);
-      console.log(users);
-    }
-  });
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   logInBtn.addEventListener("click", function (eventinfo) {
+//     if (checkSignInFields()) {
+//       logUser(logInEmail.value, logInPass.value);
+//     }
+//   });
+// });
+
+function signIn(logInEmail, logInPass) {
+  if (checkSignInFields()) {
+    logUser(logInEmail.value, logInPass.value);
+  }
+}
+
+function signUp(signUpName, signUpEmail, signUpPass) {
+     if (checkSignUpFields()) {
+       addUser(signUpName.value, signUpEmail.value, signUpPass.value);
+       console.log(users);
+     }
+}
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   signUpBtn.addEventListener("click", function (eventinfo) {
+//     if (checkSignUpFields()) {
+//       addUser(signUpName.value, signUpEmail.value, signUpPass.value);
+//       console.log(users);
+//     }
+//   });
+// });
 
 function logUser(email, pass) {
   if (users.length > 0) {
@@ -173,4 +187,3 @@ function checkSignInFields() {
     return true;
   }
 }
-

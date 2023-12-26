@@ -15,12 +15,14 @@
 <div class="element m-auto w-75 p-5 shadow-lg border-5 ">
             <h1 class="text-center mb-5">Smart Login System</h1>
 
-            <input id="signinEmail" class="form-control my-3" placeholder="Enter your email" type="text">
+            <input id="signinEmail" class="form-control my-3" placeholder="Enter your email" type="text" >
             <input id="signinPassword" class="form-control my-3" placeholder="Enter your password" type="password">
             <p id="incorrect"></p>
 
             <button id="login" class="btn btn-outline-info w-100 my-3">Login</button>
             <p class="text-white text-center mt-4">Don’t have an account? <a class="text-white " href="./html/signup.html">Sign Up!</a></p>
+            <button id="login" onclick="signIn(logInEmail, logInPass)" class="btn btn-outline-info w-100 my-3">Login</button>
+            <p class="text-white text-center mt-4">Don’t have an account? <a class="text-white " href="./html/signup.html">Sign Up</a></p>
 
         </div>
   </div>
