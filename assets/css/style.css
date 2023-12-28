@@ -3,6 +3,12 @@
   background-color: #24353F;
 }
 
+.container{
+      max-width: 960px;
+      box-sizing: border-box ;
+      
+
+}
 
 .element{
     background-color: #24353F;
@@ -35,3 +41,12 @@ a:hover{
 text-decoration: underline;
 }
 
+.main-color{
+  background-color: #152833;
+ 
+
+}
+
+.grey{
+  color:gray;
+}

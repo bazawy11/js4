@@ -6,19 +6,19 @@ var signUpEmail = document.querySelector("#signUpEmail");
 var signUpPass = document.querySelector("#signUpPassword");
 var signUpBtn = document.querySelector("#signUp");
 
+ var userName;
+if (localStorage.getItem("userName") != null) {
+  userName = localStorage.getItem("userName");
+} else { 
+  userName="Dear User"
+}
 var users = [];
 
 if (localStorage.getItem("users") != null) {
   users = getLocaleStorage();
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   logInBtn.addEventListener("click", function (eventinfo) {
-//     if (checkSignInFields()) {
-//       logUser(logInEmail.value, logInPass.value);
-//     }
-//   });
-// });
+
 
 function signIn(logInEmail, logInPass) {
   if (checkSignInFields()) {
@@ -27,27 +27,26 @@ function signIn(logInEmail, logInPass) {
 }
 
 function signUp(signUpName, signUpEmail, signUpPass) {
-     if (checkSignUpFields()) {
-       addUser(signUpName.value, signUpEmail.value, signUpPass.value);
-       console.log(users);
-     }
+  if (checkSignUpFields()) {
+    addUser(signUpName.value, signUpEmail.value, signUpPass.value);
+    console.log(users);
+  }
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   signUpBtn.addEventListener("click", function (eventinfo) {
-//     if (checkSignUpFields()) {
-//       addUser(signUpName.value, signUpEmail.value, signUpPass.value);
-//       console.log(users);
-//     }
-//   });
-// });
+
 
 function logUser(email, pass) {
   if (users.length > 0) {
     for (var i = 0; i < users.length; i++) {
+      if (
+        email.toLowerCase() == users[i].email.toLowerCase() &&
+        pass == users[i].pass
+      ) {
 
-
-      if (email == users[i].email && pass == users[i].pass) {
+        localStorage.setItem("userName", users[i].name);
+        
+        window.location.href = "./pages/welcome.html";
+        welcomingText.innerHTML = `Welcome ${userName}`;
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -55,6 +54,8 @@ function logUser(email, pass) {
           showConfirmButton: false,
           timer: 1500,
         });
+        sayWelcome(users[i].name);
+         clear();
       } else {
         Swal.fire({
           icon: "error",
@@ -63,8 +64,7 @@ function logUser(email, pass) {
         });
       }
     }
-} 
-  else {
+  } else {
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -91,6 +91,9 @@ function addUser(name, email, pass) {
         showConfirmButton: false,
         timer: 1500,
       });
+      clear();
+        window.location.href = "../index.html";
+
     } else {
       Swal.fire({
         icon: "error",
@@ -127,6 +130,8 @@ function signUpVarification(name, email, pass) {
   var goodName = userNameCheck.test(name);
   var goodEmail = userEmailCheck.test(email);
   var goodPass = userPassCheck.test(pass);
+
+ 
 
   if (goodName == false) {
     Swal.fire({
@@ -187,3 +192,25 @@ function checkSignInFields() {
     return true;
   }
 }
+function logOut() {
+  window.location.href = "../index.html";
+  userName = ``;
+}
+
+function clear() {
+  logInEmail = "";
+  logInPass = "";
+  signUpName = "";
+  signUpEmail = "";
+  signUpPass = "";
+  localStorage.setItem("userName", "");
+
+}
+
+function sayWelcome(userName) {
+
+  welcomingText.innerHTML = `Welcome ${userName}`;
+}
+
+
+sayWelcome(userName);
